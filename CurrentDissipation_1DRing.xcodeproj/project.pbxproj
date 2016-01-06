@@ -7,7 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		D3648BC21C1B488700618AF3 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D3648BC11C1B488700618AF3 /* main.cpp */; };
+		D3648BC21C1B488700618AF3 /* PC_main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D3648BC11C1B488700618AF3 /* PC_main.cpp */; };
+		D3D795E71C3D7A9C004FA760 /* Distribution.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D3D795E51C3D7A9C004FA760 /* Distribution.cpp */; };
+		D3D795EA1C3D7B24004FA760 /* EQ_Current.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D3D795E81C3D7B24004FA760 /* EQ_Current.cpp */; };
+		D3D795ED1C3D7C17004FA760 /* Diss_Integral.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D3D795EB1C3D7C17004FA760 /* Diss_Integral.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -24,7 +27,13 @@
 
 /* Begin PBXFileReference section */
 		D3648BBE1C1B488700618AF3 /* CurrentDissipation_1DRing */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CurrentDissipation_1DRing; sourceTree = BUILT_PRODUCTS_DIR; };
-		D3648BC11C1B488700618AF3 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		D3648BC11C1B488700618AF3 /* PC_main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = PC_main.cpp; sourceTree = "<group>"; };
+		D3D795E51C3D7A9C004FA760 /* Distribution.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Distribution.cpp; sourceTree = "<group>"; };
+		D3D795E61C3D7A9C004FA760 /* Distribution.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Distribution.hpp; sourceTree = "<group>"; };
+		D3D795E81C3D7B24004FA760 /* EQ_Current.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EQ_Current.cpp; sourceTree = "<group>"; };
+		D3D795E91C3D7B24004FA760 /* EQ_Current.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = EQ_Current.hpp; sourceTree = "<group>"; };
+		D3D795EB1C3D7C17004FA760 /* Diss_Integral.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Diss_Integral.cpp; sourceTree = "<group>"; };
+		D3D795EC1C3D7C17004FA760 /* Diss_Integral.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Diss_Integral.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,7 +66,13 @@
 		D3648BC01C1B488700618AF3 /* CurrentDissipation_1DRing */ = {
 			isa = PBXGroup;
 			children = (
-				D3648BC11C1B488700618AF3 /* main.cpp */,
+				D3648BC11C1B488700618AF3 /* PC_main.cpp */,
+				D3D795E61C3D7A9C004FA760 /* Distribution.hpp */,
+				D3D795E51C3D7A9C004FA760 /* Distribution.cpp */,
+				D3D795E91C3D7B24004FA760 /* EQ_Current.hpp */,
+				D3D795E81C3D7B24004FA760 /* EQ_Current.cpp */,
+				D3D795EC1C3D7C17004FA760 /* Diss_Integral.hpp */,
+				D3D795EB1C3D7C17004FA760 /* Diss_Integral.cpp */,
 			);
 			path = CurrentDissipation_1DRing;
 			sourceTree = "<group>";
@@ -118,7 +133,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D3648BC21C1B488700618AF3 /* main.cpp in Sources */,
+				D3D795EA1C3D7B24004FA760 /* EQ_Current.cpp in Sources */,
+				D3648BC21C1B488700618AF3 /* PC_main.cpp in Sources */,
+				D3D795ED1C3D7C17004FA760 /* Diss_Integral.cpp in Sources */,
+				D3D795E71C3D7A9C004FA760 /* Distribution.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -207,6 +225,12 @@
 		D3648BC61C1B488700618AF3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				HEADER_SEARCH_PATHS = /usr/local/Cellar/gsl/1.16/include;
+				LIBRARY_SEARCH_PATHS = /usr/local/Cellar/gsl/1.16/lib;
+				OTHER_LDFLAGS = (
+					"-lgsl",
+					"-lgslcblas",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -214,6 +238,12 @@
 		D3648BC71C1B488700618AF3 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				HEADER_SEARCH_PATHS = /usr/local/Cellar/gsl/1.16/include;
+				LIBRARY_SEARCH_PATHS = /usr/local/Cellar/gsl/1.16/lib;
+				OTHER_LDFLAGS = (
+					"-lgsl",
+					"-lgslcblas",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -237,6 +267,7 @@
 				D3648BC71C1B488700618AF3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
